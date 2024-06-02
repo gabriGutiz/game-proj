@@ -4,11 +4,7 @@ import sys
 from mygame.conf import UPPER_NAME, SC_WIDTH
 from mygame.actions import PLAY_ACTION, OPTS_ACTION
 from mygame._button import Button
-from mygame._constants import (
-    BK_GROUND,
-    RECT,
-    MENU_TITLE_COLOR
-)
+from mygame._constants import BK_GROUND, RECT, MENU_TITLE_COLOR
 from mygame._utils import get_font
 
 class Menu:
@@ -38,14 +34,14 @@ class Menu:
                                              size=(self._btn_width, self._btn_height))
 
             play_bt = Button(image=btn_img, text_input="PLAY", hovering_color="White",
-                             pos=(self._x_center, self._first_btn_y),
-                             font=get_font(self._btn_font_size), base_color="#d7fcd4")
+                             font=get_font(self._btn_font_size), base_color="#d7fcd4",
+                             pos=(self._x_center, self._first_btn_y))
             opts_bt = Button(image=btn_img, text_input="OPTIONS", hovering_color="White",
-                             pos=(self._x_center, self._first_btn_y + self._btn_step),
-                             font=get_font(self._btn_font_size), base_color="#d7fcd4")
+                             font=get_font(self._btn_font_size), base_color="#d7fcd4",
+                             pos=(self._x_center, self._first_btn_y + self._btn_step))
             quit_bt = Button(image=btn_img, text_input="QUIT", hovering_color="White",
-                             pos=(self._x_center, self._first_btn_y + 2*self._btn_step),
-                             font=get_font(self._btn_font_size), base_color="#d7fcd4")
+                             font=get_font(self._btn_font_size), base_color="#d7fcd4",
+                             pos=(self._x_center, self._first_btn_y + 2*self._btn_step))
 
             self.screen.blit(menu_text, menu_rect)
 
