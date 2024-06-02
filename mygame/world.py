@@ -114,7 +114,7 @@ class World:
 
         pygame.display.update()
 
-        print(f'Score: {self.player_score} | Life: {self.player.sprite.life} | Level: {self.game_level}')
+        # print(f'Score: {self.player_score} | Life: {self.player.sprite.life} | Level: {self.game_level}')
 
 
     def run(self):
