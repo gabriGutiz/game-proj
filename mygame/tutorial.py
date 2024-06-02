@@ -1,5 +1,5 @@
 
-class Options:
+class Tutorial:
     def __init__(self, screen):
         ...
 

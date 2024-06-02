@@ -2,7 +2,7 @@ import pygame
 import sys
 
 from mygame.conf import UPPER_NAME, SC_WIDTH
-from mygame.actions import PLAY_ACTION, OPTS_ACTION
+from mygame.actions import PLAY_ACTION, TUTO_ACTION, SETT_ACTION
 from mygame._button import Button
 from mygame._constants import BK_GROUND, RECT, MENU_TITLE_COLOR
 from mygame._utils import get_font
@@ -36,16 +36,16 @@ class Menu:
             play_bt = Button(image=btn_img, text_input="PLAY", hovering_color="White",
                              font=get_font(self._btn_font_size), base_color="#d7fcd4",
                              pos=(self._x_center, self._first_btn_y))
-            opts_bt = Button(image=btn_img, text_input="OPTIONS", hovering_color="White",
+            tuto_bt = Button(image=btn_img, text_input="TUTORIAL", hovering_color="White",
                              font=get_font(self._btn_font_size), base_color="#d7fcd4",
                              pos=(self._x_center, self._first_btn_y + self._btn_step))
-            quit_bt = Button(image=btn_img, text_input="QUIT", hovering_color="White",
+            sett_bt = Button(image=btn_img, text_input="SETTINGS", hovering_color="White",
                              font=get_font(self._btn_font_size), base_color="#d7fcd4",
                              pos=(self._x_center, self._first_btn_y + 2*self._btn_step))
 
             self.screen.blit(menu_text, menu_rect)
 
-            for button in [play_bt, opts_bt, quit_bt]:
+            for button in [play_bt, tuto_bt, sett_bt]:
                 button.change_color(mouse_position)
                 button.update(self.screen)
             
@@ -56,11 +56,10 @@ class Menu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if play_bt.check_for_input(mouse_position):
                         return PLAY_ACTION
-                    if opts_bt.check_for_input(mouse_position):
-                        return OPTS_ACTION
-                    if quit_bt.check_for_input(mouse_position):
-                        pygame.quit()
-                        sys.exit()
+                    if tuto_bt.check_for_input(mouse_position):
+                        return TUTO_ACTION
+                    if sett_bt.check_for_input(mouse_position):
+                        return SETT_ACTION
 
             pygame.display.update()
 

@@ -1,6 +1,6 @@
 import pygame, sys
 
-from mygame import Menu, World, Options, conf, actions
+from mygame import Menu, World, Tutorial, Settings, conf, actions
 
 
 def main():
@@ -18,9 +18,12 @@ def main():
             case actions.PLAY_ACTION:
                 world = World(screen, fps)
                 world.run()
-            case actions.OPTS_ACTION:
-                opts = Options(screen)
-                opts.run()
+            case actions.TUTO_ACTION:
+                tuto = Tutorial(screen)
+                tuto.run()
+            case actions.SETT_ACTION:
+                sett = Settings(screen)
+                sett.run()
             case _:
                 pygame.quit()
                 sys.exit()
